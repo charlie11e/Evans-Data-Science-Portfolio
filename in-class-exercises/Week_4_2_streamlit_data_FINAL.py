@@ -41,7 +41,7 @@ st.dataframe(filtered_df)
 
 # Now, instead of creating a DataFrame manually, we load a CSV file
 # This teaches students how to work with external data in Streamlit
-df = pd.read_csv("data/sample_data.csv")  # Ensure the "data" folder exists with the CSV file
+df = pd.read_csv("class-data/sample_data.csv")  # Ensure the "data" folder exists with the CSV file
 # Display the imported dataset
 st.write("Here's the dataset loaded from a CSV file:")
 st.dataframe(df)
