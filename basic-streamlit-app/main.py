@@ -4,12 +4,13 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("data/penguins.csv")
+st.title(f"Exploring the Palmer Penguins Dataset")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Data Summary", "Exploring the Dataset by Species", "Exploring the Dataset by Island", "Exploring the Dataset by Weight", "Exploring the Dataset by Bills and Flippers"])
 
 with tab1:
-    st.title(f"Exploring the Palmer Penguins Dataset")
-# Data frame of entire dataset
+    st.header("Summary of the Dataset")
+    # Data frame of entire dataset
     st.write("This app uses the dataset Palmer's penguins. It observes 344 individual penguins and identifies their species and the island on which they live. It records their bill length, bill depth, flipper length, and body mass. This app allows users to filter the dataset through the parameters previously stated. Users interact with selection boxes, sliders, check boxes, and buttons to filter the data. Formatted graphs and data frames allow the users to then analyze the data.")
     st.write("Here's the dataset loaded from a CSV file:")
     st.dataframe(df)
