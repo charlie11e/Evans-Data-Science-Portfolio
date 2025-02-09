@@ -6,5 +6,5 @@ Welcome to my portfolio for my class <b> Introduction to Data Science. </b> This
  <p></p>
  1. In class exercises that showcase the learning tools I utilized to improve my skills
  <p></p>
- 2. A basic streamlit app allowing for interactive analysis of a dataset on penguins. 
+ 2. A basic streamlit app allowing for interactive analysis of a dataset on Palmer's penguins. 
 </p>
