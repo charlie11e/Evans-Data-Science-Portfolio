@@ -10,6 +10,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Data Summary", "Exploring the Dataset b
 with tab1:
     st.title(f"Exploring the Palmer Penguins Dataset")
 # Data frame of entire dataset
+    st.write("This app uses the dataset Palmer's penguins. It observes 344 individual penguins and identifies their species and the island on which they live. It records their bill length, bill depth, flipper length, and body mass. This app allows users to filter the dataset through the parameters previously stated. Users interact with selection boxes, sliders, check boxes, and buttons to filter the data. Formatted graphs and data frames allow the users to then analyze the data.")
     st.write("Here's the dataset loaded from a CSV file:")
     st.dataframe(df)
     total_count = df.shape[0]
@@ -111,25 +112,37 @@ with tab4:
     st.pyplot()
 
     # Use a slider to select a weight
+    st.subheader("Selecting a Weight to Filter the Data")
     weight = st.slider("Select a weight (g)", df["body_mass_g"].min(), df["body_mass_g"].max())
     # Filter the data frame based on the selected weight
     # Display the number of penguins that weigh more than the selected weight by species
     weight_df = df[df["body_mass_g"] > weight]
-    species_weight_counts = weight_df["species"].value_counts()
-    species_weight_count_df = pd.DataFrame({
-        'Species': species_weight_counts.index,
-        'Count': species_weight_counts.values
-    })
-    st.write(f"Number of penguins that weigh more than {weight} grams by species:")
-    st.dataframe(species_weight_count_df)
+    # Creating columns for species and island
+    col1_2, col2_2 = st.columns(2)
+    with col1_2:
+        species_weight_counts = weight_df["species"].value_counts()
+        species_weight_count_df = pd.DataFrame({
+            'Species': species_weight_counts.index,
+            'Count': species_weight_counts.values
+        })
+        st.write(f"Number of penguins that weigh more than {weight} grams by species:")
+        st.dataframe(species_weight_count_df)
+    with col2_2:
+        island_weight_counts = weight_df["island"].value_counts()
+        island_weight_count_df = pd.DataFrame({
+            'Island': island_weight_counts.index,
+            'Count': island_weight_counts.values
+        })
+        st.write(f"Number of penguins that weigh more than {weight} grams by island:")
+        st.dataframe(island_weight_count_df)
 
 
 # Exploring the dataset by bills and flippers
 with tab5:
     st.header("Exploring the Dataset by Bills and Flippers")
     species_selected = st.multiselect("Select the species to display", df["species"].unique())
-    col1_2, col2_2 = st.columns(2)
-    with col1_2:
+    col1_3, col2_3 = st.columns(2)
+    with col1_3:
         # Scatter plot of bill length and bill depth colored by species
         st.write("Here is a scatter plot of bill length and bill depth colored by species:")
         sns.scatterplot(x="bill_length_mm", y="bill_depth_mm", hue="species", data=df[df["species"].isin(species_selected)])
@@ -139,7 +152,7 @@ with tab5:
         plt.legend(title='Species')
         st.pyplot()
 
-    with col2_2:
+    with col2_3:
         # Bar plot of flipper length by island and species
         st.write("Here is a bar plot of flipper length by island and species:")
         sns.barplot(x="island", y="flipper_length_mm", hue="species", data=df[df["species"].isin(species_selected)])
@@ -148,3 +161,14 @@ with tab5:
         plt.title('Flipper Length by Island and Species')
         plt.legend(title='Species')
         st.pyplot()
+
+    # Plotting bills and flippers against body mass
+    st.subheader("Plotting Bills and Flippers Against Body Mass")
+    st.write("Select the characteristic to plot against body mass:")
+    characteristic = st.selectbox("Select a characteristic", df[["bill_length_mm", "bill_depth_mm", "flipper_length_mm"]].columns)
+    sns.scatterplot(x=characteristic, y="body_mass_g", hue="species", data=df)
+    plt.xlabel(characteristic)
+    plt.ylabel('Body Mass (g)')
+    plt.title(f'Body Mass vs. {characteristic} by Species')
+    plt.legend(title='Species')
+    st.pyplot()
