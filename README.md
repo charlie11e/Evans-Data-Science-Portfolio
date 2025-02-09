@@ -4,7 +4,7 @@ Welcome to my portfolio for my class <b> Introduction to Data Science. </b> This
 <p></p>
 <b> Here is what I have so far: </b>
  <p>
- 1. In class exercises that showcase the learning tools I utilized to improve my skills
+ 1. [In class exercises](https://github.com/charlie11e/Evans-Data-Science-Portfolio/tree/main/in-class-exercises) that showcase the learning tools I utilized to improve my skills
  <p>
- 2. A basic streamlit app allowing for interactive analysis of a dataset on Palmer's penguins. 
+ 2. A [basic streamlit app](https://github.com/charlie11e/Evans-Data-Science-Portfolio/tree/main/basic-streamlit-app) allowing for interactive analysis of a dataset on Palmer's penguins. 
 <p>
