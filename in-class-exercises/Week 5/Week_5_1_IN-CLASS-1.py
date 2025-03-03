@@ -68,7 +68,7 @@ column = st.selectbox("Choose a column to fill:", df.select_dtypes(include = ["n
 # st.dataframe(df[column])
 
 method = st.radio("Choose a method:", 
-         ["Original DF", "Drop Rows", "Drop Columns", 
+         ["Original DF", "Drop Rows", "Drop Columns (>50% Missing)", 
           "Impute Mean", "Impute Median", "Impute Zero"])
 
 # Copy original dataframe
@@ -79,8 +79,8 @@ df_clean = df.copy()
 if method == "Original DF":
     pass
 elif method == "Drop Rows":
-    df_clean = df_clean.dropna()
-elif method == "Drop Columns":
+    df_clean = df_clean.dropna(subset = column)
+elif method == "Drop Columns (>50% Missing)":
     df_clean = df_clean.drop(columns = df_clean.columns[df_clean.isnull().mean() > 0.5])
 elif method == "Impute Mean":
     df_clean[column] = df_clean[column].fillna(df_clean[column].mean()) 
@@ -89,8 +89,17 @@ elif method == "Impute Median":
 elif method == "Impute Zero":
     df_clean[column] = df_clean[column].fillna(0)
 
+st.subheader("Cleaned Data Distribution")
+fig, ax = plt.subplots()
+sns.histplot(df_clean[column], kde = True)
+st.pyplot(fig)
+
 # Display the cleaned DataFrame
-st.dataframe(df_clean)
+# st.dataframe(df_clean)
+st.write(df_clean.describe())
+
+
+
 
 
 # ------------------------------------------------------------------------------
