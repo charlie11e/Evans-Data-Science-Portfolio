@@ -21,6 +21,6 @@ The dataset itself, it contained US federal research and development (R&D) fundi
 <h3> Visualization: </h3>
 ![Research and Design Budget Over Time by Department](TidyData-Project/Visualization.png)
 <p>
-<h3> Resources Used: </h3>
-[Tidy Data Principles Paper](https://vita.had.co.nz/papers/tidy-data.pdf)
-[Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+### Resources Used:
+- [Tidy Data Principles Paper](https://vita.had.co.nz/papers/tidy-data.pdf)
+- [Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
