@@ -8,3 +8,6 @@ Welcome to my portfolio for my class <b> Introduction to Data Science. </b> This
  <p>
  2. A basic streamlit app allowing for interactive analysis of a dataset on Palmer's penguins. 
 <p>
+3. A homework in which I practiced machine learning and linear regression.
+<p>
+4. A project in which I practiced tidying data and creating visualizations and aggregations from the cleaned data.
