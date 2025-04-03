@@ -1,6 +1,6 @@
 # Tidy Data Project
 
-<h2> In this project, I cleaned a raw dataset for better readability, perform exploratory data analysis, and create meaningful visualizations. </h2>
+<h2> In this project, I cleaned a raw dataset for better readability, performed exploratory data analysis, and created meaningful visualizations. </h2>
 <p>
 <h3> Goals: </h3>
 My goals with this project were to practice tidying data, as this is a large component of data analysis as a whole. This primarily involves following 
