@@ -12,4 +12,5 @@ Welcome to my portfolio for my class <b> Introduction to Data Science. </b> This
 <p>
 4. A project in which I practiced tidying data and creating visualizations and aggregations from the cleaned data.
 <p>
-5. A [Machine Learning Streamlit App](https://github.com/charlie11e/Evans-Data-Science-Portfolio/tree/main/MLStreamlitApp) that allows users to utilize interactive models and evaluation metrics for both regression and classification tasks.
+5. Check out the [Machine Learning Streamlit App](https://github.com/charlie11e/Evans-Data-Science-Portfolio/tree/main/MLStreamlitApp) to see interactive models and evaluation metrics for both regression and classification tasks.
+
