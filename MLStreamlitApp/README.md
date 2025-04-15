@@ -10,7 +10,7 @@ The second tab has a K-Nearest Neighbors Classification model. It predicts categ
 
 ## Regression Model Output
 
-![Regression Model Results](Evans-Data-Science-Portfolio/MLStreamlitApp/MLAppLinearReg.png)
+![Regression Model Results](/MLStreamlitApp/MLAppLinearReg.png)
 
 This plot shows the predicted vs. actual values and includes key regression metrics like R², MSE, and RMSE.
 
