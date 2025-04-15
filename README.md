@@ -12,4 +12,4 @@ Welcome to my portfolio for my class <b> Introduction to Data Science. </b> This
 <p>
 4. A project in which I practiced tidying data and creating visualizations and aggregations from the cleaned data.
 <p>
-5. A streamlit app that allows users to upload dataets and use regression and classification machine learning models to study the various properties of their datasets.
+5. [A streamlit app that allows users to upload dataets and use regression and classification machine learning models to study the various properties of their datasets.](https://github.com/charlie11e/Evans-Data-Science-Portfolio/tree/main/MLStreamlitApp)
