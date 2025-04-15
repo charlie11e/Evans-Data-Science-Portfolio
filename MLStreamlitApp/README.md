@@ -18,6 +18,6 @@ This plot shows the predicted vs. actual values and includes key regression metr
 
 ## K-Nearest Neighbors Classification Output
 
-![KNN Classification Results](MLStreamlitApp/MLAppClassification.png)
+![KNN Classification Results](/MLStreamlitApp/MLAppClassification.png)
 
 This section includes an interactive K value selector, confusion matrix, accuracy score, and classification report.
