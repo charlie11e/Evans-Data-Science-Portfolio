@@ -19,7 +19,7 @@ The dataset itself, it contained US federal research and development (R&D) fundi
   corresponding year. 
 
 # Visualization: 
-![Research and Design Budget Over Time by Department](TidyData-Project/Visualization.png)
+![Research and Design Budget Over Time by Department](/TidyData-Project/Visualization.png)
 
 # Resources Used: 
 - [Tidy Data Principles Paper](https://vita.had.co.nz/papers/tidy-data.pdf)
