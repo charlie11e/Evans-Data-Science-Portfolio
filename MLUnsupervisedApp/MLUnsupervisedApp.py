@@ -181,7 +181,10 @@ if model_choice == "KMeans":
     st.sidebar.metric("Silhouette Score", round(selected_silhouette, 2))
     st.sidebar.metric("WCSS", round(selected_wcss, 2))
 
-# --- Elbow and Silhouette Plot over Range ---
+    st.sidebar.info("Silhouette Score: A measure of how similar an object is to its own cluster compared to other clusters. A higher score indicates better-defined clusters.")
+    st.sidebar.info("WCSS: Within-Cluster Sum of Squares, a measure of the compactness of the clusters. Lower values indicate more compact clusters.")
+
+# Elbow and Silhouette Plot over Range
 ks = range(2, min(X_scaled.shape)-1)
 wcss = []
 silhouette_scores = []
@@ -195,21 +198,16 @@ if model_choice == "KMeans":
         silhouette_scores.append(silhouette_score(X_scaled, labels_k))
 
 
-
-st.sidebar.info("Silhouette Score: A measure of how similar an object is to its own cluster compared to other clusters. A higher score indicates better-defined clusters.")
-st.sidebar.info("WCSS: Within-Cluster Sum of Squares, a measure of the compactness of the clusters. Lower values indicate more compact clusters.")
-
-
-
 # Plotting the results
 st.subheader("Clustering Results")
 
 
-st.subheader("PCA CLuster Scatterplot")
+st.subheader("PCA Cluster Scatterplot")
 plt.figure(figsize=(8, 6))
-for label in pca_df["Cluster"].unique():
-    cluster_data = pca_df[pca_df["Cluster"] == label]
-    plt.scatter(
+if "PC2" in pca_df.columns:
+    for label in pca_df["Cluster"].unique():
+        cluster_data = pca_df[pca_df["Cluster"] == label]
+        plt.scatter(
             cluster_data["PC1"],
             cluster_data["PC2"],
             label=f"Cluster {label}",
@@ -217,14 +215,15 @@ for label in pca_df["Cluster"].unique():
             alpha=0.7,
             edgecolors="k"
         )
-
-plt.xlabel("Principal Component 1")
-plt.ylabel("Principal Component 2")
-plt.title("Clustering on PCA Projection")
-plt.legend()
-plt.grid(True)
-st.pyplot(plt)
-plt.clf()
+    plt.xlabel("Principal Component 1")
+    plt.ylabel("Principal Component 2")
+    plt.title("Clustering on PCA Projection")
+    plt.legend()
+    plt.grid(True)
+    st.pyplot(plt)
+    plt.clf()
+else:
+    st.warning("PCA requires at least 2 components to plot a scatter plot.")
 
 
 if model_choice == "KMeans":
@@ -254,7 +253,7 @@ if model_choice == "KMeans":
 else:
     st.subheader("Dendrogram (Hierarchical Clustering)")
     linked = linkage(pca_data, method='ward')
-
+    # from scipy.cluster.hierarchy import linkage, dendrogram
     plt.figure(figsize=(8, 4))
     dendrogram(linked, truncate_mode='level', p=5)
     plt.title('Hierarchical Clustering Dendrogram')
@@ -263,8 +262,8 @@ else:
     st.pyplot(plt)
     plt.clf()
 
-# --- Cluster Assignment Output ---
-st.write("### Cluster Assignments")
+# Cluster Assignment Output
+st.header("Cluster Assignments")
 df_with_clusters = df.copy()
 df_with_clusters["Cluster"] = labels
 st.dataframe(df_with_clusters)
