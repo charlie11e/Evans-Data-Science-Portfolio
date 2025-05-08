@@ -9,7 +9,7 @@ Once PCA is applied, users can experiment with clustering methods by adjusting p
 ## Images:
 
 ## PCA Scatterplot
-[PCA Scatterplot](/MLUnsupervisedApp/pca-scatterplot.png)
+![PCA Scatterplot](/MLUnsupervisedApp/pca-scatterplot.png)
 
 ## Dendrogram (Hierarchical Clustering)
-[Dendrogram](/MLUnsupervisedApp/dendrogram.png)
+![Dendrogram](/MLUnsupervisedApp/dendrogram.png)
